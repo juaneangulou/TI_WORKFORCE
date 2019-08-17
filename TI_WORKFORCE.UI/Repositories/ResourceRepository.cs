@@ -56,7 +56,7 @@ namespace TI_WORKFORCE.UI.Repositories
 
         }
 
-        public async Task<SingleResourceDto> UpdateResource(int id, ResourceCreateInputDto resourceCreateInputDto)
+        public async Task<SingleResourceDto> UpdateResource(int id, SingleResourceDto resourceCreateInputDto)
         {
             var result = new SingleResourceDto();
             try
@@ -179,17 +179,19 @@ namespace TI_WORKFORCE.UI.Repositories
                         DateOfBirth = resource.DateOfBirth,
                         Address = resource.Address,
                     };
+
+                    var timesheets = _context.Timesheet.Where(x => x.ResourceId == resource.Id);
+                    if (timesheets.Count() > 0)
+                        _context.Timesheet.RemoveRange(timesheets);
                     _context.Resource.Remove(resource);
-                  await  _context.SaveChangesAsync();
-
-                }             
-
+                    await _context.SaveChangesAsync();
+                }
                 return result;
 
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
             finally
             {

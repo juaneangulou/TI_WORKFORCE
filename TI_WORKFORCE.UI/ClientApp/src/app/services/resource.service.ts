@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
+import {  HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class ResourceService {
   }
   updateResource(resource) {
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this._http.put(this.apiUrl+'/'+resource.Idresource, JSON.stringify(resource), { headers: headers });
+    return this._http.put(this.apiUrl+'/'+resource.Id, JSON.stringify(resource), { headers: headers });
   }
   deleteResource(idresource) {
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });

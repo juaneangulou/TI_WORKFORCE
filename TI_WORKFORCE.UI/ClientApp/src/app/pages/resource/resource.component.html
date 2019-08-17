@@ -4,32 +4,37 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="resourceFisrtNameInput">First Name</label>
-                <input type="text" [value]="resource.FirstName" (input)="resource.FirstName=$event.target.value" class="form-control" id="resourceFisrtNameInput" placeholder="Eg. Balaji ">
+                <input type="text" [value]="resource.FirstName" (input)="resource.FirstName=$event.target.value"
+                    class="form-control" id="resourceFisrtNameInput" placeholder="Eg. Balaji ">
             </div>
 
         </div>
         <div class="col-md-3">
             <div class="form-group">
                 <label for="resourceLastName">Last Name</label>
-                <input type="text" [value]="resource.LastName" (input)="resource.LastName=$event.target.value" class="form-control" id="resourceLastName" placeholder="Eg. Patel ">
+                <input type="text" [value]="resource.LastName" (input)="resource.LastName=$event.target.value"
+                    class="form-control" id="resourceLastName" placeholder="Eg. Patel ">
             </div>
 
         </div>
         <div class="col-md-3">
             <div class="form-group">
                 <label for="resourceDateOfBirthInput">Date of Birth</label>
-                <input type="text" [value]="resource.DateOfBirth" (input)="resource.DateOfBirth=$event.target.value" class="form-control" id="resourceDateOfBirthInput" placeholder="0000-00-00">
+                <input type="text" [value]="resource.DateOfBirth" (input)="resource.DateOfBirth=$event.target.value"
+                    class="form-control" id="resourceDateOfBirthInput" placeholder="0000-00-00">
             </div>
 
         </div>
         <div class="col-md-3">
             <div class="form-group">
                 <label for="resourceAddressInput">Address</label>
-                <input type="text" [value]="resource.Address" (input)="resource.Address=$event.target.value" class="form-control" id="resourceAddressInput"
-                    placeholder="eg. St.00 Florida - USA">
+                <input type="text" [value]="resource.Address" (input)="resource.Address=$event.target.value"
+                    class="form-control" id="resourceAddressInput" placeholder="eg. St.00 Florida - USA">
             </div>
         </div>
-        <button type="button" (click)="insertResource()" class="btn btn-primary  btn-lg ">Save</button>
+        <div class="col-md-2">
+            <button type="button" (click)="insertResource()" class="btn btn-primary ">Save</button>
+        </div>
     </div>
     <br>
     <p>All Resources</p>
@@ -46,13 +51,15 @@
         </thead>
         <tbody>
             <tr *ngFor="let resource of resourceList;">
-                <th scope="row">{{ resource.id }}</th>
-                <td>                   
-                    {{ resource.firstName }}
+                <th scope="row">{{ resource.Id }}</th>
+                <td>
+                    {{ resource.FirstName }}
                 </td>
-                <td>{{ resource.lastName  }}</td>
-                <td>{{ resource.dateOfBirth}}</td>
-                <td>{{ resource.address}}</td>
+                <td>{{ resource.LastName  }}</td>
+                <td>{{ resource.DateOfBirth}}</td>
+                <td>{{ resource.Address}}</td>
+                  <fa name="trash" size="2x" style="margin-right: 5px; cursor: pointer;" (click)="onClickDelete(resource)"></fa>
+                  <fa name="edit" size="2x" style="margin-right: 5px; cursor: pointer;" (click)="onClickEdit(resource)"></fa>
             </tr>
         </tbody>
     </table>

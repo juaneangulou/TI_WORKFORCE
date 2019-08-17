@@ -29,7 +29,7 @@ namespace TI_WORKFORCE.UI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<SingleResourceDto>> UpdatetResource(int id, ResourceCreateInputDto resourceInput)
+        public async Task<ActionResult<SingleResourceDto>> UpdatetResource(int id, SingleResourceDto resourceInput)
         {
             var resourceResult = await _resourceRepository.UpdateResource(id,resourceInput);
             return resourceResult;

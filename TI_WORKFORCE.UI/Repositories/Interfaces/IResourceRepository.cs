@@ -12,6 +12,6 @@ namespace TI_WORKFORCE.UI.Repositories.Interfaces
         SingleResourceDto GetSingleResource(int id);
         IEnumerable<SingleResourceDto> GetAllResources();
         Task<SingleResourceDto> DeleteResource(int id);
-        Task<SingleResourceDto> UpdateResource(int id, ResourceCreateInputDto resourceCreateInputDto);
+        Task<SingleResourceDto> UpdateResource(int id, SingleResourceDto resourceCreateInputDto);
     }
 }
