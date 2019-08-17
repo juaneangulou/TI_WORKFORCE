@@ -28,6 +28,13 @@ namespace TI_WORKFORCE.UI.Controllers
 
         }
 
+        [HttpPut("{id}")]
+        public async Task<ActionResult<SingleResourceDto>> UpdatetResource(int id, ResourceCreateInputDto resourceInput)
+        {
+            var resourceResult = await _resourceRepository.UpdateResource(id,resourceInput);
+            return resourceResult;
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<SingleResourceDto>> GetSingleResource(int id)
         {
@@ -53,9 +60,7 @@ namespace TI_WORKFORCE.UI.Controllers
             var resourceResult = await _resourceRepository.DeleteResource(id);
             return resourceResult;
         }
-
- 
-
+        
         private IResourceRepository _resourceRepository;
     }
 }

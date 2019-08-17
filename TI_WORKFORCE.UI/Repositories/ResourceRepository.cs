@@ -55,6 +55,50 @@ namespace TI_WORKFORCE.UI.Repositories
             return result;
 
         }
+
+        public async Task<SingleResourceDto> UpdateResource(int id, ResourceCreateInputDto resourceCreateInputDto)
+        {
+            var result = new SingleResourceDto();
+            try
+            {
+                var resource = _context.Resource.Where(x => x.Id == id).FirstOrDefault();
+
+                if (resource == null)
+                    throw new Exception();
+
+                resource.FirstName = resourceCreateInputDto.FirstName;
+                resource.LastName = resourceCreateInputDto.LastName;
+                resource.DateOfBirth = resourceCreateInputDto.DateOfBirth;
+                resource.Address = resourceCreateInputDto.Address;
+
+                await _context.SaveChangesAsync();
+
+                result = new SingleResourceDto()
+                {
+                    Id = resource.Id,
+                    FirstName = resourceCreateInputDto.FirstName,
+                    LastName = resourceCreateInputDto.LastName,
+                    DateOfBirth = resourceCreateInputDto.DateOfBirth,
+                    Address = resourceCreateInputDto.Address,
+                };
+
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                _context.Dispose();
+            }
+
+            return result;
+
+        }
+
+
         public SingleResourceDto GetSingleResource(int id)
         {
             var result = new SingleResourceDto();
