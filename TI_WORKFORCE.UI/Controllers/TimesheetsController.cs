@@ -14,9 +14,9 @@ namespace TI_WORKFORCE.UI.Controllers
     [ApiController]
     public class TimesheetsController : ControllerBase
     {
-        public TimesheetsController()
+        public TimesheetsController(ITimesheetRepository timesheetRepository)
         {
-            _timesheetRepository = new TimesheetRepository();
+            _timesheetRepository = timesheetRepository;
         }
 
         [HttpPost]

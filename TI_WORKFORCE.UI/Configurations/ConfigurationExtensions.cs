@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using TI_WORKFORCE.UI.Repositories;
+using TI_WORKFORCE.UI.Repositories.Interfaces;
 
 namespace TI_WORKFORCE.UI.Configurations
 {
@@ -29,6 +31,17 @@ namespace TI_WORKFORCE.UI.Configurations
             });
 
             return app;
+        }
+
+        #endregion
+
+        #region Register DI
+        public static IServiceCollection AddRepositories(this IServiceCollection services)
+        {
+            services.AddSingleton<IResourceRepository, ResourceRepository>();
+            services.AddSingleton<ITimesheetRepository, TimesheetRepository>();
+        
+            return services;
         }
 
         #endregion

@@ -14,9 +14,9 @@ namespace TI_WORKFORCE.UI.Controllers
     [ApiController]
     public class ResourcesController : ControllerBase
     {
-        public ResourcesController()
+        public ResourcesController(IResourceRepository resourceRepository)
         {
-            _resourceRepository = new ResourceRepository();
+            _resourceRepository = resourceRepository;
         }
 
         [HttpPost]

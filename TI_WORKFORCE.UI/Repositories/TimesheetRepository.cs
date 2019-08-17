@@ -10,13 +10,10 @@ namespace TI_WORKFORCE.UI.Repositories
 {
     public class TimesheetRepository : ITimesheetRepository
     {
-        public TimesheetRepository()
-        {
-            _context = new TI_WORKFORCEDBContext();
-        }
-
+ 
         public async Task<SingleTimesheetDto> InsertTimesheet(TimesheetCreateInputDto timesheetCreateInputDto)
         {
+            TI_WORKFORCEDBContext _context = new TI_WORKFORCEDBContext();
             var result = new SingleTimesheetDto();
             try
             {
@@ -57,6 +54,7 @@ namespace TI_WORKFORCE.UI.Repositories
 
         public async Task<SingleTimesheetDto> UpdateTimesheet(int id, TimesheetCreateInputDto timesheetCreateInputDto)
         {
+            TI_WORKFORCEDBContext _context = new TI_WORKFORCEDBContext();
             var result = new SingleTimesheetDto();
             try
             {
@@ -86,7 +84,7 @@ namespace TI_WORKFORCE.UI.Repositories
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
             finally
             {
@@ -100,6 +98,7 @@ namespace TI_WORKFORCE.UI.Repositories
 
         public SingleTimesheetDto GetSingleTimesheet(int id)
         {
+            TI_WORKFORCEDBContext _context = new TI_WORKFORCEDBContext();
             var result = new SingleTimesheetDto();
             try
             {
@@ -119,7 +118,7 @@ namespace TI_WORKFORCE.UI.Repositories
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
             finally
             {
@@ -131,6 +130,7 @@ namespace TI_WORKFORCE.UI.Repositories
 
         public IEnumerable<SingleTimesheetDto> GetAllTimesheets()
         {
+            TI_WORKFORCEDBContext _context = new TI_WORKFORCEDBContext();
             var result = new List<SingleTimesheetDto>();
             try
             {
@@ -151,7 +151,7 @@ namespace TI_WORKFORCE.UI.Repositories
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
             finally
             {
@@ -164,6 +164,7 @@ namespace TI_WORKFORCE.UI.Repositories
 
         public async Task<SingleTimesheetDto> DeleteTimesheet(int id)
         {
+            TI_WORKFORCEDBContext _context = new TI_WORKFORCEDBContext();
             var result = new SingleTimesheetDto();
             try
             {
@@ -188,7 +189,7 @@ namespace TI_WORKFORCE.UI.Repositories
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
             finally
             {
@@ -200,6 +201,5 @@ namespace TI_WORKFORCE.UI.Repositories
         }
 
 
-        private TI_WORKFORCEDBContext _context;
     }
 }

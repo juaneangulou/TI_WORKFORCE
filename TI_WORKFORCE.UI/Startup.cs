@@ -27,6 +27,7 @@ namespace TI_WORKFORCE.UI
                     = new Newtonsoft.Json.Serialization.DefaultContractResolver();
             }); 
             services.AddSwagger();
+            services.AddRepositories();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

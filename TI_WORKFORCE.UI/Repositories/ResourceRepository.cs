@@ -9,15 +9,10 @@ using TI_WORKFORCE.UI.Repositories.Interfaces;
 namespace TI_WORKFORCE.UI.Repositories
 {
     public class ResourceRepository : IResourceRepository
-    {
-
-        public ResourceRepository()
-        {
-            _context = new TI_WORKFORCEDBContext();
-        }
-
+    {   
         public async Task<SingleResourceDto> InsertResource(ResourceCreateInputDto resourceCreateInputDto)
         {
+            TI_WORKFORCEDBContext _context = new TI_WORKFORCEDBContext();
             var result = new SingleResourceDto();
             try
             {
@@ -45,7 +40,7 @@ namespace TI_WORKFORCE.UI.Repositories
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
             finally
             {
@@ -58,6 +53,7 @@ namespace TI_WORKFORCE.UI.Repositories
 
         public async Task<SingleResourceDto> UpdateResource(int id, SingleResourceDto resourceCreateInputDto)
         {
+            TI_WORKFORCEDBContext _context = new TI_WORKFORCEDBContext();
             var result = new SingleResourceDto();
             try
             {
@@ -87,7 +83,7 @@ namespace TI_WORKFORCE.UI.Repositories
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
             finally
             {
@@ -101,6 +97,7 @@ namespace TI_WORKFORCE.UI.Repositories
 
         public SingleResourceDto GetSingleResource(int id)
         {
+            TI_WORKFORCEDBContext _context = new TI_WORKFORCEDBContext();
             var result = new SingleResourceDto();
             try
             {
@@ -120,7 +117,7 @@ namespace TI_WORKFORCE.UI.Repositories
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
             finally
             {
@@ -132,6 +129,7 @@ namespace TI_WORKFORCE.UI.Repositories
 
         public IEnumerable<SingleResourceDto> GetAllResources()
         {
+            TI_WORKFORCEDBContext _context = new TI_WORKFORCEDBContext();
             var result = new List<SingleResourceDto>();
             try
             {
@@ -152,7 +150,7 @@ namespace TI_WORKFORCE.UI.Repositories
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
             finally
             {
@@ -165,6 +163,7 @@ namespace TI_WORKFORCE.UI.Repositories
 
         public async Task<SingleResourceDto> DeleteResource(int id)
         {
+            TI_WORKFORCEDBContext _context = new TI_WORKFORCEDBContext();
             var result = new SingleResourceDto();
             try
             {
@@ -200,9 +199,6 @@ namespace TI_WORKFORCE.UI.Repositories
 
             return result;
 
-        }
-
-
-        private TI_WORKFORCEDBContext _context;
+        }        
     }
 }
