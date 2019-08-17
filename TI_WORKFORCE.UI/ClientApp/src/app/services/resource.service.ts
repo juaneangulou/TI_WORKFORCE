@@ -28,9 +28,4 @@ export class ResourceService {
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this._http.get(this.apiUrl + '/' + id, { headers: headers });
   }
-//   getAllresourcesByName(name) {
-//     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-//     return this._http.get('http://localhost:51741/api/resources/GetresourceByName/' + name, { headers: headers });
-//   }
-
 }
