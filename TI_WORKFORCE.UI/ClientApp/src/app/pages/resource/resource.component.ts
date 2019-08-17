@@ -41,7 +41,6 @@ export class ResourceComponent implements OnInit {
     this.resource.LastName = singleSource.LastName;
     this.resource.DateOfBirth = singleSource.DateOfBirth;
     this.resource.Address = singleSource.Address;
-    this.closeModal();
   }
 
   onClickDelete(singleSource) {
