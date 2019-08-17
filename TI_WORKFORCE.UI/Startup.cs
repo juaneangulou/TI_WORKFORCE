@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TI_WORKFORCE.UI.Configurations;
 
 namespace TI_WORKFORCE.UI
 {
@@ -21,6 +22,7 @@ namespace TI_WORKFORCE.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddSwagger();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -46,6 +48,7 @@ namespace TI_WORKFORCE.UI
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.ConfigureSwagger();
 
             app.UseMvc(routes =>
             {
