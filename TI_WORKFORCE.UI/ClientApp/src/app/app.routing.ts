@@ -1,39 +1,27 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminLayoutComponent } from './common-components/admin-layout/admin-layout.component';
-import { UserLayoutComponent } from './common-components/user-layout/user-layout.component';
+import { HomeComponent } from './home/home.component';
+import { ResourceComponent } from './pages/resource/resource.component';
+import { TimesheetComponent } from './pages/timesheet/timesheet.component';
+import { TimeQueryComponent } from './pages/time-query/time-query.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'pages/home',
+    redirectTo: '/resources',
     pathMatch: 'full',
   },
   {
-    path: '',
-    component: AdminLayoutComponent,
-    data: {
-      title: 'Home'
-    },
-    children: [
-      {
-        path: 'dashboard-admin',
-        loadChildren: './dashboard-admin/dashboard-admin.module#DashboardAdminModule'
-      },      
-    ]
+    path: 'resources',
+    component: ResourceComponent,   
   },
   {
-    path: 'pages',
-    component: UserLayoutComponent,
-    data: {
-      title: 'Pages'
-    },
-    children: [
-      {
-        path: '',
-        loadChildren: './pages/pages.module#PagesModule',
-      }
-    ]
+    path: 'timesheet',
+    component: TimesheetComponent,   
+  },
+  {
+    path: 'timesheet-queries',
+    component: TimeQueryComponent,   
   }
 ];
 

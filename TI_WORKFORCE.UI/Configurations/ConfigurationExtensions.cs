@@ -11,7 +11,7 @@ namespace TI_WORKFORCE.UI.Configurations
         {
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Firestation Manager", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TI WorkForceLogic API", Version = "v1" });
             });
             return services;
         }
@@ -25,7 +25,7 @@ namespace TI_WORKFORCE.UI.Configurations
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Firestation Manager");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "TI WorkForceLogic API");
             });
 
             return app;

@@ -1,6 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace TI_WORKFORCE.UI.Models
 {
@@ -52,7 +54,7 @@ namespace TI_WORKFORCE.UI.Models
 
                 entity.Property(e => e.DateReported).HasColumnType("datetime");
 
-                entity.Property(e => e.HoursWorked).HasColumnType("numeric(2, 2)");
+                entity.Property(e => e.HoursWorked).HasColumnType("decimal(18, 2)");
 
                 entity.HasOne(d => d.Resource)
                     .WithMany(p => p.Timesheet)

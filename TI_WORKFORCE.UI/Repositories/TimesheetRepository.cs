@@ -44,7 +44,7 @@ namespace TI_WORKFORCE.UI.Repositories
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
             finally
             {
