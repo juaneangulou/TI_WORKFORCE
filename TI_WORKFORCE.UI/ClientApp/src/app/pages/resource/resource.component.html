@@ -1,1 +1,59 @@
-<p>resource works!</p>
+<div class="container">
+    <h2 class="text-center">Resource</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="resourceFisrtNameInput">First Name</label>
+                <input type="text" [value]="resource.FirstName" (input)="resource.FirstName=$event.target.value" class="form-control" id="resourceFisrtNameInput" placeholder="Eg. Balaji ">
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="resourceLastName">Last Name</label>
+                <input type="text" [value]="resource.LastName" (input)="resource.LastName=$event.target.value" class="form-control" id="resourceLastName" placeholder="Eg. Patel ">
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="resourceDateOfBirthInput">Date of Birth</label>
+                <input type="text" [value]="resource.DateOfBirth" (input)="resource.DateOfBirth=$event.target.value" class="form-control" id="resourceDateOfBirthInput" placeholder="0000-00-00">
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="resourceAddressInput">Address</label>
+                <input type="text" [value]="resource.Address" (input)="resource.Address=$event.target.value" class="form-control" id="resourceAddressInput"
+                    placeholder="eg. St.00 Florida - USA">
+            </div>
+        </div>
+        <button type="button" (click)="insertResource()" class="btn btn-primary  btn-lg ">Save</button>
+    </div>
+    <br>
+    <p>All Resources</p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Fisrt Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Date of Birth</th>
+                <th scope="col">Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let resource of resourceList;">
+                <th scope="row">{{ resource.id }}</th>
+                <td>                   
+                    {{ resource.firstName }}
+                </td>
+                <td>{{ resource.lastName  }}</td>
+                <td>{{ resource.dateOfBirth}}</td>
+                <td>{{ resource.address}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
