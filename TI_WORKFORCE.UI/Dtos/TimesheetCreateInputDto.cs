@@ -11,6 +11,5 @@ namespace TI_WORKFORCE.UI.Dtos
         public DateTime Date { get; set; }
         public decimal HoursWorked { get; set; }
         public DateTime DateReported { get; set; }
-        public SingleResourceDto Resource { get; set; }
     }
 }

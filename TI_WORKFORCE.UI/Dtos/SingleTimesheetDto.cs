@@ -8,6 +8,8 @@ namespace TI_WORKFORCE.UI.Dtos
     public class SingleTimesheetDto : TimesheetCreateInputDto
     {
         public int Id { get; set; }
-    
+
+        public SingleResourceDto Resource { get; set; }
+
     }
 }
