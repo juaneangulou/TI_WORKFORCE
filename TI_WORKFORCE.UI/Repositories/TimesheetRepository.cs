@@ -10,10 +10,13 @@ namespace TI_WORKFORCE.UI.Repositories
 {
     public class TimesheetRepository : ITimesheetRepository
     {
- 
+        private TI_WORKFORCEDBContext _context;
+        public TimesheetRepository(TI_WORKFORCEDBContext dbContext)
+        {
+            _context = dbContext;
+        }
         public async Task<SingleTimesheetDto> InsertTimesheet(TimesheetCreateInputDto timesheetCreateInputDto)
         {
-            TI_WORKFORCEDBContext _context = new TI_WORKFORCEDBContext();
             var result = new SingleTimesheetDto();
             try
             {
@@ -43,18 +46,10 @@ namespace TI_WORKFORCE.UI.Repositories
             {
                 throw ex;
             }
-            finally
-            {
-                _context.Dispose();
-            }
-
-            return result;
-
         }
 
         public async Task<SingleTimesheetDto> UpdateTimesheet(int id, TimesheetCreateInputDto timesheetCreateInputDto)
         {
-            TI_WORKFORCEDBContext _context = new TI_WORKFORCEDBContext();
             var result = new SingleTimesheetDto();
             try
             {
@@ -78,27 +73,17 @@ namespace TI_WORKFORCE.UI.Repositories
                     DateReported = timesheetCreateInputDto.DateReported,
                     ResourceId = timesheetCreateInputDto.ResourceId,
                 };
-
                 return result;
-
             }
             catch (Exception ex)
             {
                 throw ex;
-            }
-            finally
-            {
-                _context.Dispose();
-            }
-
-            return result;
-
+            } 
         }
 
 
         public SingleTimesheetDto GetSingleTimesheet(int id)
         {
-            TI_WORKFORCEDBContext _context = new TI_WORKFORCEDBContext();
             var result = new SingleTimesheetDto();
             try
             {
@@ -112,25 +97,16 @@ namespace TI_WORKFORCE.UI.Repositories
                     DateReported = timesheet.DateReported,
                     ResourceId = timesheet.ResourceId,
                 };
-
                 return result;
-
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            finally
-            {
-                _context.Dispose();
-            }
-
-            return result;
         }
 
         public IEnumerable<SingleTimesheetDto> GetAllTimesheets()
         {
-            TI_WORKFORCEDBContext _context = new TI_WORKFORCEDBContext();
             var result = new List<SingleTimesheetDto>();
             try
             {
@@ -160,18 +136,10 @@ namespace TI_WORKFORCE.UI.Repositories
             {
                 throw ex;
             }
-            finally
-            {
-                _context.Dispose();
-            }
-
-            return result;
-
         }
 
         public async Task<SingleTimesheetDto> DeleteTimesheet(int id)
         {
-            TI_WORKFORCEDBContext _context = new TI_WORKFORCEDBContext();
             var result = new SingleTimesheetDto();
             try
             {
@@ -190,23 +158,12 @@ namespace TI_WORKFORCE.UI.Repositories
                     await _context.SaveChangesAsync();
 
                 }
-
                 return result;
-
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            finally
-            {
-                _context.Dispose();
-            }
-
-            return result;
-
         }
-
-
     }
 }

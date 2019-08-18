@@ -38,8 +38,8 @@ namespace TI_WORKFORCE.UI.Configurations
         #region Register DI
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            services.AddSingleton<IResourceRepository, ResourceRepository>();
-            services.AddSingleton<ITimesheetRepository, TimesheetRepository>();
+            services.AddScoped<IResourceRepository, ResourceRepository>();
+            services.AddScoped<ITimesheetRepository, TimesheetRepository>();
         
             return services;
         }
