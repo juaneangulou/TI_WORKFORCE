@@ -16,6 +16,7 @@ import { TimesheetComponent } from './pages/timesheet/timesheet.component';
 import { TimeQueryComponent } from './pages/time-query/time-query.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFontAwesomeModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,71 @@
-<p>timesheet works!</p>
+<div class="container">
+    <h2 class="text-center">Timesheets</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="resourceFisrtNameInput">Resource</label>
+                <select class="form-control"  [(ngModel)]="timesheet.ResourceId">
+                    <option value="0">Choose one option</option>
+                    <option *ngFor="let resource of resourceList" value="{{resource.Id}}">
+                        {{resource.FirstName + " " +resource.LastName }}</option>
+                </select>
+            </div>
+
+        </div>
+       <div class="col-md-3">
+                <div class="form-group">
+                    <label for="timesheetDate">Date</label>
+                    <input type="text" [value]="timesheet.Date" (input)="timesheet.Date=$event.target.value"
+                        class="form-control" id="timesheetDate" placeholder="Eg. 0000-00-00">
+                </div>
+    
+            </div>
+         <div class="col-md-3">
+                <div class="form-group">
+                    <label for="timesheetDateOfBirthInput">Hours Worked</label>
+                    <input type="number" [value]="timesheet.HoursWorked" (input)="timesheet.HoursWorked=$event.target.value"
+                        class="form-control" id="timesheetHoursWorkedInput" placeholder="0.0">
+                </div>
+    
+            </div>
+         <!--        <div class="col-md-3">
+                <div class="form-group">
+                    <label for="resourceAddressInput">Address</label>
+                    <input type="text" [value]="resource.Address" (input)="resource.Address=$event.target.value"
+                        class="form-control" id="resourceAddressInput" placeholder="eg. St.00 Florida - USA">
+                </div>
+            </div> -->
+        <div class="col-md-2">
+            <button type="button" (click)="insertResource()" class="btn btn-primary ">Save</button>
+        </div>
+    </div>
+    <br>
+    <p>All Resources</p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Resource</th>
+                <th scope="col">Date</th>
+                <th scope="col">Hours worked</th>
+                <th scope="col">Date Reported</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let timesheet of timesheetList;">
+                <th scope="row">{{ timesheet.Id }}</th>
+                <td>
+                    {{ timesheet.Resource.FirstName +" "+  timesheet.Resource.LastName  }}
+                </td>
+                <td>{{ timesheet.Date  }}</td>
+                <td>{{ timesheet.HoursWorked}}</td>
+                <td>{{ timesheet.DateReported}}</td>
+                <fa name="trash" size="2x" style="margin-right: 5px; cursor: pointer;"
+                    (click)="onClickDelete(timesheet)"></fa>
+                <fa name="edit" size="2x" style="margin-right: 5px; cursor: pointer;" (click)="onClickEdit(timesheet)">
+                </fa>
+            </tr>
+        </tbody>
+    </table>
+</div>

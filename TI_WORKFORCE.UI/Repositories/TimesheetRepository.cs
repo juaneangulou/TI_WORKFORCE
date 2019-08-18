@@ -142,8 +142,15 @@ namespace TI_WORKFORCE.UI.Repositories
                               HoursWorked = timesheet.HoursWorked,
                               DateReported = timesheet.DateReported,
                               ResourceId = timesheet.ResourceId,
+                              Resource=new SingleResourceDto() {
+                                 Id= timesheet.Resource.Id,
+                                 FirstName= timesheet.Resource.FirstName,
+                                 LastName= timesheet.Resource.LastName,
+                                 DateOfBirth= timesheet.Resource.DateOfBirth,
+                                 Address=timesheet.Resource.Address
+                              }
                           }
-                                ).ToList();
+                                ).OrderBy(x=>x.Resource.Id).ThenBy(x=>x.Date).ToList();
 
 
                 return result;

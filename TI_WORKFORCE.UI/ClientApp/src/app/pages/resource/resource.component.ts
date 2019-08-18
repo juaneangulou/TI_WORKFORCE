@@ -15,10 +15,7 @@ export class ResourceComponent implements OnInit {
 
   public resource: ResourceModel = new ResourceModel(0, "", "", "", "");
   public resourceList: Array<any> = [];
-  public searchResourceList: Array<any> = [];
-  idResource = 0;
-  lastName = "";
-  modalRef = null;
+
 
 
   ngOnInit() {
